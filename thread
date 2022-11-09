@@ -1,0 +1,31 @@
+import java.io.*;
+class A extends Thread
+{
+publicvoid run()
+{
+System.out.println("thread A priority:"+this.getPriority());
+for(int i=1;i<5;i++){
+System.out.println("thread A......i="+i);}
+System.out.println("exit from thread A:execution over");
+}
+}
+class B extends Thread{
+publicvoid run()
+{
+System.out.println("Thread B priority:"+this.getPriority());
+for(int i=1;i<5;i++){
+System.out.println("thread B......i="+i);}
+System.out.println("exit from thread B:execution over");
+}
+}
+publicclass thread {
+publicstaticvoid main(String[]args)
+{
+A thread_a=newA();
+B thread_b=newB();
+thread_a.setPriority(Thread.MIN_PRIORITY);
+thread_b.setPriority(Thread.MIN_PRIORITY);
+thread_a.start();
+thread_b.start();
+}
+}
